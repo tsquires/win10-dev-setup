@@ -80,6 +80,7 @@ Scripts used to setup a dev machine
 - Nuget Package Explorer
 - Windows Terminal Profile setup
 - VS Code settings
+- Spotify
 
 # References
 
