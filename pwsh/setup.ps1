@@ -30,6 +30,8 @@ Powercfg /Change standby-timeout-ac 0
 # Show hidden files, Show protected OS files, Show file extensions
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions
 
+choco install IIS-ManagementService -y -source windowsfeatures
+
 Write-Host "Finished Step 2"
 
 Write-Host "Step 3: Installing tools"
@@ -39,38 +41,34 @@ $Apps = @(
     "microsoft-edge",
     "googlechrome",
     "firefox",
+    #TODO: chrome beta?
     
     #Communications
-    #"skype",
-    #"microsoft-teams.install",
-    #"teamviewer",
+    "slack",
+    "microsoft-teams.install",
+    "zoom",
     
     #Editing
-    #"notepadplusplus.install",
-    #"grammarly",
+    "notepadplusplus.install",
     
     # Media players and production
-    #"vlc",
+    "vlc",
     #"kdenlive", # Supports standalone 
-    #"obs-studio",
+    "obs-studio",
     
     # Network & Debugging
     "fiddler",
-    #"logparser",
-    #"postman",
+    "insomnia-rest-api-client",
     "sysinternals",
-    "wget",
-    #"wireshark",
-
-    #office
-    #"powerbi",
 
     #Scriptings
     "powershell-core",
     
     #Utils
+    #screenshot utility?
     #"filezilla",
     #"greenshot"
+    "7zip.install"
 
     #"lightshot.install",
 )
@@ -82,26 +80,27 @@ Write-Host "Finished Step 3: Installing tools" -Foreground green
 
 Write-Host "Step 4a: Installing dev tools"
 $devTools = @(
+    #Chrome extensions
+    editthiscookie-chrome,
     #Editors
     "vscode",
-    #Version control    
+    #visual studio
+    #Version control
     "git",
+    "sourcetree",
     #.Net
     "dotnetcore-sdk",
-    #"dotpeek",
-    #"debugdiagnostic",
-    #Uncomment below line for service fabric
-    #"service-fabric-explorer",
+    "dotnetfx",
     #NodeJS
+    "nvm",
     #"nodejs-lts",
-    #Python
-    #"python3",
+    #No way to specify node versions, do this manually?
     #Database
     "ssms",
     # hosting on cloud
     "azure-cli",
-    # Diagramming
-    #"graphviz"
+    # TODO: fonts for terminal/vscode/etc.
+    "microsoft-windows-terminal"
 )
 foreach ($devTool in $devTools) {
     cinst $devTool -y
@@ -122,3 +121,8 @@ Write-Host "Step 5: git config"
 git config --global user.email "tim@example.com"
 git config --global user.name "John Doe"
 Write-Host "Step 5: Finished git config"
+
+#TODO: dotfiles?
+#.gitconfig
+#.windows terminal config
+#.vscode config
