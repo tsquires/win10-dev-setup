@@ -65,10 +65,21 @@ Scripts used to setup a dev machine
 - Hosting
   - Azure CLI
 
-# What is pending
+# TODO
 
-- Visual Studio 2019
+- Visual Studio
 - WSL 2
+- LinqPad 5 & 6
+- Beyond Compare
+- SQL Compare
+- Logi Studio
+- Discord
+- iTunes
+- Azure Storage Explorer
+- Service Bus Explorer
+- Nuget Package Explorer
+- Windows Terminal Profile setup
+- VS Code settings
 
 # References
 
